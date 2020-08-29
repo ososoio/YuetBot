@@ -3,7 +3,7 @@ import SQLite3
 
 struct YuetYamProvider {
         private static let database: OpaquePointer? = {
-                let path: String = "/srv/yuetyam/yuetyam.sqlite3"
+                let path: String = "/srv/yuetbot/yuetyam.sqlite3"
                 var db: OpaquePointer?
                 if sqlite3_open_v2(path, &db, SQLITE_OPEN_READONLY, nil) == SQLITE_OK {
                         return db
