@@ -1,4 +1,4 @@
-// swift-tools-version:5.2
+// swift-tools-version:5.3
 
 import PackageDescription
 
@@ -30,7 +30,7 @@ let package = Package(
 #else
 let package = Package(
         name: "YuetBot",
-        platforms: [.macOS(.v10_15)],
+        platforms: [.macOS(.v11)],
         products: [
                 .executable(name: "yuetbot", targets: ["YuetBot"])
         ],

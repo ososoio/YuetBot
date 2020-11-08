@@ -13,13 +13,12 @@ struct YuetYamProvider {
         }()
         
         static func match(for text: String) -> [String] {
-                let token: Int64 = Int64(text.hash)
                 var yuetyams: [String] = []
-                let queryString = "SELECT * FROM yuetyamtable WHERE token = \(token);"
+                let queryString = "SELECT * FROM yuetyamtable WHERE word = '\(text)';"
                 var queryStatement: OpaquePointer? = nil
                 if sqlite3_prepare_v2(database, queryString, -1, &queryStatement, nil) == SQLITE_OK {
                         while sqlite3_step(queryStatement) == SQLITE_ROW {
-                                // token = sqlite3_column_int64(queryStatement, 0)
+                                // let word: String = String(describing: String(cString: sqlite3_column_text(queryStatement, 0)))
                                 let yuetyam: String = String(describing: String(cString: sqlite3_column_text(queryStatement, 1)))
                                 yuetyams.append(yuetyam)
                         }

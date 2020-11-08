@@ -8,7 +8,7 @@ enum BotError: Swift.Error {
 
 let logger: Logger = Logger(label: "io.ososo.yuetbot")
 
-guard let botToken: String = ProcessInfo.processInfo.environment["TELEGRAM_YUETYAM_BOT_TOKEN"] else {
+guard let botToken: String = ProcessInfo.processInfo.environment["TELEGRAM_YUET_BOT_TOKEN"] else {
         logger.error("No Telegram bot token found on environments.")
         throw BotError.noToken
 }
